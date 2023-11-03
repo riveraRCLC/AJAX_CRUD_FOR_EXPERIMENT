@@ -266,7 +266,7 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         function editEmployee() {
-            var tsub2 = $('.edit_employee #name_input').val();
+            var tsub = $('.edit_employee #name_input').val();
             var tuserid = $('.edit_employee #email_input').val();
             var ttowhomid = $('.edit_employee #phone_input').val();
             var tbody = $('.edit_employee #address_input').val();
@@ -275,11 +275,11 @@
             $.ajax({
                 type: 'post',
                 data: {
-                    tsub: tsub2,
-                    tuserid: tuserid2,
-                    ttowhomid: ttowhomid2,
-                    tbody: tbody2,
-                    tid: tid2,
+                    tsub: tsub,
+                    tuserid: tuserid,
+                    ttowhomid: ttowhomid,
+                    tbody: tbody,
+                    tid: tid,
                 },
                 url: "employee-edit.php",
                 success: function (data) {
