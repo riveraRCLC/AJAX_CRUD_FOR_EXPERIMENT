@@ -1,7 +1,7 @@
 <?php
 include ("connection.php" ); 
-$id =$_GET['id' ];  
-$sql= "DELETE FROM  `employees` WHERE `id`  =  $id " ; 
+$tid =$_GET['id' ];  
+$sql= "DELETE FROM  `ticket` WHERE `tid`  =  $tid " ; 
 
 if(mysqli_query($conn , $sql)){
     $response = [
