@@ -1,12 +1,12 @@
 <?php
 include ("connection.php" );
-$name= $_POST['name' ];
-$email= $_POST['email' ];
-$address= $_POST['address' ];
-$phone= $_POST['phone' ];
-$id= $_POST['employee_id' ];
-$sql= "UPDATE `employees`  SET  `name` = '". $name."'  , `email` =  '". $email."' , 
-`address`  =  '".$address ."' , `phone`  ='".$phone ."' WHERE `id` = $id " ;
+$tsub= $_POST['tsub' ];
+$tuserid= $_POST['tuserid' ];
+$tbody= $_POST['tbody' ];
+$ttowhomid= $_POST['ttowhomid' ];
+$tid= $_POST['tid' ];
+$sql= "UPDATE `ticket`  SET  `tsub` = '". $tsub."'  , `tuserid` =  '". $tuserid."' , 
+`tbody`  =  '".$tbody ."' , `ttowhomid`  ='".$ttowhomid ."' WHERE `tid` = $tid " ;
 
 if(mysqli_query($conn , $sql)){
     $response = [

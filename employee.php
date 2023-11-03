@@ -205,28 +205,28 @@
                     console.log(response);
                     var tr = '';
                     for (var i = 0; i < response.length; i++) {
-                        var id = response[i].tid;
-                        var name = response[i].tsub;
-                        var email = response[i].tuserid;
-                        var phone = response[i].ttowhomid;
-                        var address = response[i].tbody;
+                        var tid = response[i].tid;
+                        var tsub = response[i].tsub;
+                        var tuserid = response[i].tuserid;
+                        var ttowhomid = response[i].ttowhomid;
+                        var tbody = response[i].tbody;
                         tr += '<tr>';
-                        tr += '<td>' + id + '</td>';
-                        tr += '<td>' + name + '</td>';
-                        tr += '<td>' + email + '</td>';
-                        tr += '<td>' + phone + '</td>';
-                        tr += '<td>' + address + '</td>';
+                        tr += '<td>' + tid + '</td>';
+                        tr += '<td>' + tsub + '</td>';
+                        tr += '<td>' + tuserid + '</td>';
+                        tr += '<td>' + ttowhomid + '</td>';
+                        tr += '<td>' + tbody + '</td>';
                         tr += '<td><div class="d-flex">';
                         tr +=
                             '<a href="#viewEmployeeModal" class="m-1 view" data-toggle="modal" onclick=viewEmployee("' +
-                            id + '")><i class="fa" data-toggle="tooltip" title="view">&#xf06e;</i></a>';
+                            tid + '")><i class="fa" data-toggle="tooltip" title="view">&#xf06e;</i></a>';
                         tr +=
                             '<a href="#editEmployeeModal" class="m-1 edit" data-toggle="modal" onclick=viewEmployee("' +
-                            id +
+                            tid +
                             '")><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>';
                         tr +=
                             '<a href="#deleteEmployeeModal" class="m-1 delete" data-toggle="modal" onclick=$("#delete_id").val("' +
-                            id +
+                            tid +
                             '")><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>';
                         tr += '</div></td>';
                         tr += '</tr>';
@@ -240,18 +240,18 @@
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         function addEmployee() {
-            var tsub = $('.add_epmployee #name_input').val();
-            var tuserid = $('.add_epmployee #email_input').val();
-            var ttowhomid = $('.add_epmployee #phone_input').val();
-            var tbody = $('.add_epmployee #address_input').val();
+            var tsub2 = $('.add_epmployee #name_input').val();
+            var tuserid2 = $('.add_epmployee #email_input').val();
+            var ttowhomid2 = $('.add_epmployee #phone_input').val();
+            var tbody2 = $('.add_epmployee #address_input').val();
 
             $.ajax({
                 type: 'post',
                 data: {
-                    tsub: tsub,
-                    tuserid: tuserid,
-                    ttowhomid: ttowhomid,
-                    tbody: tbody,
+                    tsub: tsub2,
+                    tuserid: tuserid2,
+                    ttowhomid: ttowhomid2,
+                    tbody: tbody2,
                 },
                 url: "employee-add.php",
                 success: function (data) {
@@ -266,7 +266,7 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         function editEmployee() {
-            var tsub = $('.edit_employee #name_input').val();
+            var tsub2 = $('.edit_employee #name_input').val();
             var tuserid = $('.edit_employee #email_input').val();
             var ttowhomid = $('.edit_employee #phone_input').val();
             var tbody = $('.edit_employee #address_input').val();
@@ -275,11 +275,11 @@
             $.ajax({
                 type: 'post',
                 data: {
-                    tsub: tsub,
-                    tuserid: tuserid,
-                    ttowhomid: ttowhomid,
-                    tbody: tbody,
-                    tid: tid,
+                    tsub: tsub2,
+                    tuserid: tuserid2,
+                    ttowhomid: ttowhomid2,
+                    tbody: tbody2,
+                    tid: tid2,
                 },
                 url: "employee-edit.php",
                 success: function (data) {
@@ -296,20 +296,20 @@
             $.ajax({
                 type: 'get',
                 data: {
-                    id: id,
+                    tid: tid,
                 },
                 url: "employee-view.php",
                 success: function (data) {
                     var response = JSON.parse(data);
-                    $('.edit_employee #name_input').val(response.name);
-                    $('.edit_employee #email_input').val(response.email);
-                    $('.edit_employee #phone_input').val(response.phone);
-                    $('.edit_employee #address_input').val(response.address);
-                    $('.edit_employee #employee_id').val(response.id);
-                    $('.view_employee #name_input').val(response.name);
-                    $('.view_employee #email_input').val(response.email);
-                    $('.view_employee #phone_input').val(response.phone);
-                    $('.view_employee #address_input').val(response.address);
+                    $('.edit_employee #name_input').val(response.tsub);
+                    $('.edit_employee #email_input').val(response.tuserid);
+                    $('.edit_employee #phone_input').val(response.ttowhomid);
+                    $('.edit_employee #address_input').val(response.tbody);
+                    $('.edit_employee #employee_id').val(response.tid);
+                    $('.view_employee #name_input').val(response.tsub);
+                    $('.view_employee #email_input').val(response.tuserid);
+                    $('.view_employee #phone_input').val(response.ttowhomid);
+                    $('.view_employee #address_input').val(response.tbody);
                 }
             })
         }
