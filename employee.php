@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-                                    class="material-icons">&#xE147;</i><span>Add New Employee</span></a>
+                                    class="material-icons">&#xE147;</i><span>Add Ticket</span></a>
                         </div>
                     </div>
                 </div>
@@ -68,24 +68,24 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Employee</h4>
+                    <h4 class="modal-title">Add Ticket</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body add_epmployee">
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Subject</label>
                         <input type="text" id="name_input" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
+                        <label>MyAcct</label>
                         <input type="email" id="email_input" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
+                        <label>Body</label>
                         <textarea class="form-control" id="address_input" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Phone</label>
+                        <label>To:</label>
                         <input type="text" id="phone_input" class="form-control" required>
                     </div>
                 </div>
@@ -240,18 +240,18 @@
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         function addEmployee() {
-            var name = $('.add_epmployee #name_input').val();
-            var email = $('.add_epmployee #email_input').val();
-            var phone = $('.add_epmployee #phone_input').val();
-            var address = $('.add_epmployee #address_input').val();
+            var tsub = $('.add_epmployee #name_input').val();
+            var tuserid = $('.add_epmployee #email_input').val();
+            var ttowhomid = $('.add_epmployee #phone_input').val();
+            var tbody = $('.add_epmployee #address_input').val();
 
             $.ajax({
                 type: 'post',
                 data: {
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    address: address,
+                    tsub: tsub,
+                    tuserid: tuserid,
+                    ttowhomid: ttowhomid,
+                    tbody: tbody,
                 },
                 url: "employee-add.php",
                 success: function (data) {

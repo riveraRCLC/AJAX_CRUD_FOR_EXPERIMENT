@@ -1,12 +1,12 @@
 <?php
-////////////////////////////////////////////////////////
+
 include ("connection.php" ); 
-$name =  $_POST['name' ]; 
-$email =  $_POST['email' ]; 
-$address =  $_POST['address' ]; 
-$phone =  $_POST['phone' ]; 
-$sql=  "INSERT  INTO `employees`(`name` , `email` , `address` , `phone`)
- VALUE  (' {$name} ' , ' {$email } ' , ' {$address } ' , ' {$phone } ')" ; 
+$tsub =  $_POST['tsub' ]; 
+$tuserid =  $_POST['tuserid' ]; 
+$tbody =  $_POST['tbody' ]; 
+$ttowhomid =  $_POST['ttowhomid' ]; 
+$sql=  "INSERT  INTO `ticket`(`tsub` , `tuserid` , `tbody` , `ttowhomid`)
+ VALUE  (' {$tsub} ' , ' {$tuserid } ' , ' {$tbody } ' , ' {$ttowhomid } ')" ; 
 
 if(mysqli_query($conn , $sql)){
     $response = [
@@ -23,6 +23,6 @@ if(mysqli_query($conn , $sql)){
     ];
     print_r(json_encode($response));
 }
-////////////////////////////////////////////////////////
+
 
 ?> 
