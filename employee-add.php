@@ -1,5 +1,6 @@
 <?php
- include ("connection.php" ); 
+////////////////////////////////////////////////////////
+include ("connection.php" ); 
 $name =  $_POST['name' ]; 
 $email =  $_POST['email' ]; 
 $address =  $_POST['address' ]; 
@@ -21,5 +22,7 @@ if(mysqli_query($conn , $sql)){
         'message'=>'Record created failed!'
     ];
     print_r(json_encode($response));
-} 
+}
+////////////////////////////////////////////////////////
+
 ?> 

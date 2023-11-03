@@ -1,6 +1,6 @@
 <?php
 include ("connection.php" ); 
-$sql= "SELECT *  FROM `employees`" ; 
+$sql= "SELECT *  FROM `ticket`" ; 
 $result = mysqli_query($conn ,  $sql); 
 $data = [];
 while ($fetch=mysqli_fetch_assoc($result)){

@@ -44,10 +44,10 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Phone</th>
+                            <th>Subject</th>
+                            <th>Your Acct</th>
+                            <th>To:</th>
+                            <th>Body Of The Letter</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -189,11 +189,13 @@
 
     </script>
     <script>
-        $(document).ready(function () {
+
+       //////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+       $(document).ready(function () {
             employeeList();
 
         });
-
+    
         function employeeList() {
             $.ajax({
                 type: 'get',
@@ -203,11 +205,11 @@
                     console.log(response);
                     var tr = '';
                     for (var i = 0; i < response.length; i++) {
-                        var id = response[i].id;
-                        var name = response[i].name;
-                        var email = response[i].email;
-                        var phone = response[i].phone;
-                        var address = response[i].address;
+                        var id = response[i].tid;
+                        var name = response[i].tsub;
+                        var email = response[i].tuserid;
+                        var phone = response[i].ttowhomid;
+                        var address = response[i].tbody;
                         tr += '<tr>';
                         tr += '<td>' + id + '</td>';
                         tr += '<td>' + name + '</td>';
@@ -234,7 +236,9 @@
                 }
             });
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         function addEmployee() {
             var name = $('.add_epmployee #name_input').val();
             var email = $('.add_epmployee #email_input').val();
@@ -259,6 +263,7 @@
 
             })
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         function editEmployee() {
             var name = $('.edit_employee #name_input').val();
@@ -287,7 +292,7 @@
             })
         }
 
-        function viewEmployee(id = 2) {
+        function viewEmployee() {
             $.ajax({
                 type: 'get',
                 data: {
