@@ -292,11 +292,11 @@
             })
         }
 
-        function viewEmployee() {
+        function viewEmployee(id = 2) {
             $.ajax({
                 type: 'get',
                 data: {
-                    tid: tid,
+                    id: id,
                 },
                 url: "employee-view.php",
                 success: function (data) {
