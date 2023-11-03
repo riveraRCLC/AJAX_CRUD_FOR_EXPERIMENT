@@ -31,7 +31,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Manage <b>Employees</b></h2>
+                            <h2>Manage <b>Ticket</b></h2>
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
@@ -101,24 +101,24 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Employee</h4>
+                    <h4 class="modal-title">Edit Ticket</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body edit_employee">
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Subject</label>
                         <input type="text" id="name_input" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
+                        <label>MyAcct</label>
                         <input type="email" id="email_input" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
+                        <label>Body</label>
                         <textarea class="form-control" id="address_input" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Phone</label>
+                        <label>To:</label>
                         <input type="text" id="phone_input" class="form-control" required>
                         <input type="hidden" id="employee_id" class="form-control" required>
                     </div>
@@ -136,24 +136,24 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">View Employee</h4>
+                    <h4 class="modal-title">View Ticket</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body view_employee">
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Subject</label>
                         <input type="text" id="name_input" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
+                        <label>MyAcct</label>
                         <input type="email" id="email_input" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
+                        <label>Body</label>
                         <textarea class="form-control" id="address_input" readonly></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Phone</label>
+                        <label>To:</label>
                         <input type="text" id="phone_input" class="form-control" readonly>
                     </div>
                 </div>
@@ -266,20 +266,20 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         function editEmployee() {
-            var name = $('.edit_employee #name_input').val();
-            var email = $('.edit_employee #email_input').val();
-            var phone = $('.edit_employee #phone_input').val();
-            var address = $('.edit_employee #address_input').val();
-            var employee_id = $('.edit_employee #employee_id').val();
+            var tsub = $('.edit_employee #name_input').val();
+            var tuserid = $('.edit_employee #email_input').val();
+            var ttowhomid = $('.edit_employee #phone_input').val();
+            var tbody = $('.edit_employee #address_input').val();
+            var tid = $('.edit_employee #employee_id').val();
 
             $.ajax({
                 type: 'post',
                 data: {
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    address: address,
-                    employee_id: employee_id,
+                    tsub: tsub,
+                    tuserid: tuserid,
+                    ttowhomid: ttowhomid,
+                    tbody: tbody,
+                    tid: tid,
                 },
                 url: "employee-edit.php",
                 success: function (data) {
